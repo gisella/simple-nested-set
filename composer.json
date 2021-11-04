@@ -11,7 +11,9 @@
   ],
   "require": {
     "ext-json": "*",
-    "phpunit/phpunit": "9.5.10",
     "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.10"
   }
 }
