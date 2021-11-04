@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/docebo",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "gisella",
+      "email": "bronzett@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-json": "*",
+    "phpunit/phpunit": "9.5.10",
+    "ext-pdo": "*"
+  }
+}
