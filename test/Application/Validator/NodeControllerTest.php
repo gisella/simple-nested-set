@@ -11,7 +11,7 @@ final class NodeControllerTest extends TestCase
         $params = ['node_id' => 1, 'language' => 'italian', 'page_size' => 1];
         $testObj = new NodeController();
         $actual=$testObj->listNodes($params);
-        self::assertJsonStringEqualsJsonString('{"nodes":[{"nodeId":5,"name":"Docebo","children":11}],"error":""}', $actual->jsonSerialize());
+        self::assertJsonStringEqualsJsonString('{"nodes":[{"nodeId":5,"name":"NestedSet","children":11}],"error":""}', $actual->jsonSerialize());
     }
 
 }
