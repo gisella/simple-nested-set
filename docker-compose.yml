@@ -2,11 +2,6 @@ name: nested_set
 
 services:
 
-  php:
-    image: php:8.2-cli
-    container_name: php-cli
-    tty: true
-
   php-apache-environment:
     container_name: nested-service
     build: 

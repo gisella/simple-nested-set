@@ -1,0 +1,7 @@
+/test
+composer.json
+composer.phar
+docker-compose.yml
+README.md
+makefile
+.gitignore
