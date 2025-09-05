@@ -1,6 +1,6 @@
 <?php
 
-use Docebo\Domain\Model\Language;
+use NestedSet\Domain\Model\Language;
 use PHPUnit\Framework\TestCase;
 
 final class LanguageTest extends TestCase

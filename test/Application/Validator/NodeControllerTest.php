@@ -1,6 +1,6 @@
 <?php
 
-use Docebo\Application\NodeController;
+use NestedSet\Application\NodeController;
 use PHPUnit\Framework\TestCase;
 
 final class NodeControllerTest extends TestCase

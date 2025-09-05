@@ -1,7 +1,7 @@
 <?php
 
-use Docebo\Application\Validator\NodeRequestValidator;
-use Docebo\Application\Validator\RequestValidator;
+use NestedSet\Application\Validator\NodeRequestValidator;
+use NestedSet\Application\Validator\RequestValidator;
 use PHPUnit\Framework\TestCase;
 
 final class RequestValidatorTest extends TestCase

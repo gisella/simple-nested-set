@@ -1,8 +1,8 @@
 <?php
 
-use Docebo\Domain\Model\Language;
-use Docebo\Domain\Model\NodeRequest;
-use Docebo\Domain\Model\QueryBuilder;
+use NestedSet\Domain\Model\Language;
+use NestedSet\Domain\Model\NodeRequest;
+use NestedSet\Domain\Model\QueryBuilder;
 use PHPUnit\Framework\TestCase;
 
 final class QueryBuilderTest extends TestCase

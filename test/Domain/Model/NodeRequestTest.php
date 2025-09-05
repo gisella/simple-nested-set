@@ -1,10 +1,10 @@
 <?php
 
-use Docebo\Domain\Model\Exception\InvalidPageNumberException;
-use Docebo\Domain\Model\Exception\InvalidPageSizeException;
-use Docebo\Domain\Model\Exception\MissingParamsException;
-use Docebo\Domain\Model\Language;
-use Docebo\Domain\Model\NodeRequest;
+use NestedSet\Domain\Model\Exception\InvalidPageNumberException;
+use NestedSet\Domain\Model\Exception\InvalidPageSizeException;
+use NestedSet\Domain\Model\Exception\MissingParamsException;
+use NestedSet\Domain\Model\Language;
+use NestedSet\Domain\Model\NodeRequest;
 use PHPUnit\Framework\TestCase;
 
 final class NodeRequestTest extends TestCase

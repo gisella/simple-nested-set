@@ -1,9 +1,9 @@
 <?php
 
-use Docebo\Domain\Model\Config;
-use Docebo\Domain\Model\NodeArray;
-use Docebo\Infrastructure\Repository\MysqlClient;
-use Docebo\Infrastructure\Repository\MysqlRepository;
+use NestedSet\Domain\Model\Config;
+use NestedSet\Domain\Model\NodeArray;
+use NestedSet\Infrastructure\Repository\MysqlClient;
+use NestedSet\Infrastructure\Repository\MysqlRepository;
 use PHPUnit\Framework\TestCase;
 
 final class MysqlRepositoryTest extends TestCase

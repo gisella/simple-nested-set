@@ -1,8 +1,8 @@
 <?php
 
-use Docebo\Application\Validator\NodeRequestValidator;
-use Docebo\Domain\Model\Exception\InvalidNodeException;
-use Docebo\Domain\Model\Exception\MissingParamsException;
+use NestedSet\Application\Validator\NodeRequestValidator;
+use NestedSet\Domain\Model\Exception\InvalidNodeException;
+use NestedSet\Domain\Model\Exception\MissingParamsException;
 use PHPUnit\Framework\TestCase;
 
 final class NodeRequestValidatorTest extends TestCase
@@ -29,7 +29,7 @@ final class NodeRequestValidatorTest extends TestCase
 
     public function testGetNodeRequestThrowInvalidPageSizeException()
     {
-        $this->expectException(\Docebo\Domain\Model\Exception\InvalidPageSizeException::class);
+        $this->expectException(\NestedSet\Domain\Model\Exception\InvalidPageSizeException::class);
 
         $params = ["node_id"=>1,'language'=>'italian','page_size'=>-1];
         $testObj = new NodeRequestValidator($params);
