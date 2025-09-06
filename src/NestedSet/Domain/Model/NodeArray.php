@@ -21,7 +21,8 @@ class NodeArray
     /**
      * @return array
      */
-    public function getNodes(){
+    public function getNodes()
+    {
         return $this->nodes;
     }
 

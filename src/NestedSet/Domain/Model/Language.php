@@ -4,7 +4,7 @@ namespace NestedSet\Domain\Model;
 
 class Language
 {
-    const ITALIAN='italian';
+    const ITALIAN = 'italian';
 
     static public function from(string $language): string
     {

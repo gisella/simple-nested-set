@@ -32,7 +32,7 @@ class NodeResponse implements JsonSerializable
     /**
      * @return array
      */
-        public function jsonSerialize(): array
+    public function jsonSerialize(): array
     {
         return ["nodes" => $this->nodes,
             "error" => $this->error];

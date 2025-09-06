@@ -9,7 +9,7 @@ class Config
 
     private function __construct()
     {
-        $this->config = require_once (__DIR__ . '/../../Infrastructure/config/config.php');
+        $this->config = require_once(__DIR__ . '/../../Infrastructure/config/config.php');
     }
 
     static public function getInstance()

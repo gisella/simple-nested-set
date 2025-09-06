@@ -21,7 +21,6 @@ class Ak_Error {
     }
 
     static function log_exception(Exception $e) {
-
         print "<div style='text-align: center;'>";
         print "<h2 style='color: rgb(190, 50, 50);'>Exception Occured:</h2>";
         print "<table style='width: 800px; display: inline-block;'>";
@@ -33,7 +32,8 @@ class Ak_Error {
 
         $errore='Errore '. $e->getCode().' in '.$e->getFile().' ('.$e->getLine().")\r\n";
         $errore.="\t\t".$e->getMessage()."\r\n\r\n";
-        file_put_contents('public/log.txt', $errore);
+        error_log($errore);
+        file_put_contents('/tmp/log.txt', $errore);
     }
 
     static function check_for_fatal() {

@@ -17,9 +17,9 @@ class NodeRequest
      * @param string $language
      * @throws MissingParamsException
      */
-    function __construct(int $nodeId, string $language)
+    function __construct(public int $nodeId, public string $language, public int $pageNum, public int $pageSize, public string $searchKeyword)
     {
-        if (empty($nodeId) || empty($language) || $nodeId<1) {
+        if (empty($nodeId) || empty($language) || $nodeId < 1) {
             throw new MissingParamsException();
         }
         $this->nodeId = $nodeId;
@@ -88,7 +88,7 @@ class NodeRequest
      */
     public function setPageNum(int $pageNum): NodeRequest
     {
-        if($pageNum<0){
+        if ($pageNum < 0) {
             throw new InvalidPageNumberException();
         }
         $this->pageNum = $pageNum;
@@ -114,7 +114,7 @@ class NodeRequest
         return (is_int($pageSize) && $pageSize >= self::MIN_PAGE_SIZE && $pageSize <= self::MAX_PAGE_SIZE);
     }
 
-    public function existsSearchKeyword():bool
+    public function existsSearchKeyword(): bool
     {
         return !empty($this->getSearchKeyword());
     }

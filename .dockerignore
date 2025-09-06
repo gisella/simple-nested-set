@@ -5,3 +5,5 @@ docker-compose.yml
 README.md
 makefile
 .gitignore
+xdebug.log
+vendor

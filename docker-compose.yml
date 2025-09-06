@@ -1,12 +1,21 @@
 name: nested_set
 
 services:
+  composer-dev:
+    container_name: composer
+    build:
+      context: ./
+      dockerfile: deploy/Dockerfile
+    volumes:
+      - ./:/var/www
 
   php-apache-environment:
     container_name: nested-service
     build: 
       context: ./
       dockerfile: deploy/Dockerfile
+    environment:
+      - PHP_IDE_CONFIG=serverName=nested-service
     env_file:
       - ./.env
     volumes:
@@ -14,7 +23,6 @@ services:
     user: '33:33'
     ports:
       - 8000:80
-      - 9003:9003      # Espone la porta per Xdebug 3
     depends_on:
       - mysql
     extra_hosts:

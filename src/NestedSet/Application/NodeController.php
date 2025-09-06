@@ -7,13 +7,14 @@ use NestedSet\Domain\Model\Exception\NestedSetException;
 use NestedSet\Domain\Model\NodeResponse;
 use NestedSet\Domain\Model\QueryBuilder;
 use NestedSet\Infrastructure\Repository\MysqlRepository;
+use Throwable;
 
 class NodeController
 {
 
     public function listNodes($inputParams): NodeResponse
     {
-        $nodeResponse=new NodeResponse();
+        $nodeResponse = new NodeResponse();
         try {
             $validator = new NodeRequestValidator($inputParams);
             $nodeRequest = $validator->getNodeRequest();
@@ -26,7 +27,7 @@ class NodeController
             $nodeResponse->setNodes($nodeArray->getNodes());
         } catch (NestedSetException $e) {
             $nodeResponse->setError($e->getMessage());
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             error_log($e->getMessage() . "-" . $e->getTraceAsString());
             $nodeResponse->setError('Internal Server Error');
         }
