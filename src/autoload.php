@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('PHPUNIT_RUNNING')) {
+    define('PHPUNIT_RUNNING', false);
+}
+
 spl_autoload_register('autoload');
 
 function autoload($class)

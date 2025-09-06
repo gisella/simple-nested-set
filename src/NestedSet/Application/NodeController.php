@@ -6,11 +6,18 @@ use NestedSet\Application\Validator\NodeRequestValidator;
 use NestedSet\Domain\Model\Exception\NestedSetException;
 use NestedSet\Domain\Model\NodeResponse;
 use NestedSet\Domain\Model\QueryBuilder;
+use NestedSet\Domain\Repository\MysqlRepositoryInterface;
 use NestedSet\Infrastructure\Repository\MysqlRepository;
 use Throwable;
 
 class NodeController
 {
+    private MysqlRepositoryInterface $repository;
+
+    public function __construct(?MysqlRepositoryInterface $repository = null)
+    {
+        $this->repository = $repository ?? new MysqlRepository();
+    }
 
     public function listNodes($inputParams): NodeResponse
     {
@@ -22,8 +29,8 @@ class NodeController
             $queryBuilder = new QueryBuilder($nodeRequest);
             $query = $queryBuilder->getQuery();
             $queryParameters = $queryBuilder->getQueryParameters();
-            $repository = new MysqlRepository();
-            $nodeArray = $repository->getNodes($query, $queryParameters);
+
+            $nodeArray = $this->repository->getNodes($query, $queryParameters);
             $nodeResponse->setNodes($nodeArray->getNodes());
         } catch (NestedSetException $e) {
             $nodeResponse->setError($e->getMessage());

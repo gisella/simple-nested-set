@@ -15,5 +15,19 @@
   },
   "require-dev": {
     "phpunit/phpunit": "9.5.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "NestedSet\\": "src/NestedSet/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "NestedSet\\Test\\": "test/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "test-coverage": "phpunit --coverage-html coverage"
   }
 }

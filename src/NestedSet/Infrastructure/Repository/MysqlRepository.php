@@ -11,12 +11,21 @@ class MysqlRepository implements MysqlRepositoryInterface
     private MysqlClient $mysqlClient;
 
     /**
+     * @param MysqlClient|null $mysqlClient Per i test, permetti l'iniezione
      * @throws \NestedSet\Domain\Model\Exception\DatabaseConnectionException
      */
-    function __construct()
+    public function __construct(?MysqlClient $mysqlClient = null)
     {
-        $config = Config::getInstance();
-        $this->mysqlClient = new MysqlClient($config->get('dbUrl'), $config->get('dbUsername'), $config->get('dbPassword'));
+        if ($mysqlClient === null) {
+            $config = Config::getInstance();
+            $this->mysqlClient = new MysqlClient(
+                $config->get('dbUrl'),
+                $config->get('dbUsername'),
+                $config->get('dbPassword')
+            );
+        } else {
+            $this->mysqlClient = $mysqlClient;
+        }
     }
 
     /**
@@ -33,5 +42,4 @@ class MysqlRepository implements MysqlRepositoryInterface
         }
         return $nodeArray;
     }
-
 }
