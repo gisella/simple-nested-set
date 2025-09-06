@@ -2,31 +2,34 @@
 
 namespace NestedSet\Domain\Model;
 
+use AllowDynamicProperties;
 use NestedSet\Domain\Model\Exception\InvalidPageNumberException;
 use NestedSet\Domain\Model\Exception\InvalidPageSizeException;
 use NestedSet\Domain\Model\Exception\MissingParamsException;
 
+#[AllowDynamicProperties]
 class NodeRequest
 {
     const MIN_PAGE_SIZE = 0;
     const MAX_PAGE_SIZE = 1000;
     const DEFAULT_PAGE_SIZE = 100;
 
+    public int $pageNum = 0;
+    public int $pageSize = self::DEFAULT_PAGE_SIZE;
+    public string $searchKeyword = '';
+
     /**
      * @param int $nodeId
      * @param string $language
      * @throws MissingParamsException
      */
-    function __construct(public int $nodeId, public string $language, public int $pageNum, public int $pageSize, public string $searchKeyword)
+    function __construct(public int $nodeId, public string $language)
     {
         if (empty($nodeId) || empty($language) || $nodeId < 1) {
             throw new MissingParamsException();
         }
         $this->nodeId = $nodeId;
         $this->language = Language::from($language);
-        $this->pageNum = 0;
-        $this->pageSize = self::DEFAULT_PAGE_SIZE;
-        $this->searchKeyword = '';
     }
 
     /**

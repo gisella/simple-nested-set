@@ -7,3 +7,5 @@ makefile
 .gitignore
 xdebug.log
 vendor
+.env
+secrets/
